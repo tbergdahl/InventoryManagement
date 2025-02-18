@@ -21,8 +21,6 @@ from django.shortcuts import redirect
 def load_to_login(request):
     return redirect('auth_main_page')
 
-
-
 urlpatterns = [
     # Below redirects to user management app by default, which manages login
     path('', load_to_login),
