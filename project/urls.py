@@ -16,10 +16,26 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.shortcuts import redirect
+
+def load_to_login(request):
+    return redirect('auth_main_page')
+
+
 
 urlpatterns = [
+    # Below redirects to user management app by default, which manages login
+    path('', load_to_login),
+    
+    # loads admin app's urls
     path('admin/', admin.site.urls),
+    
+    # loads report gen app's urls
     path("report_generation/", include("apps.report_generation.urls")),
+    
+    # loads user management app's urls
     path("user_management/", include("apps.user_management.urls")),
+    
+    # loads inventory management app's urls
     path("inventory/", include("apps.inventory.urls")),
 ]
