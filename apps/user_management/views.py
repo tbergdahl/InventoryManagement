@@ -15,7 +15,7 @@ def login_user(request):
         
         if user is not None:
             login(request, user)
-            return redirect("index")  # Redirect to the user list page
+            return redirect("direct_to_page") 
         else:
             return render(request, "login.html", {"error": "Invalid username or password"})
     
@@ -31,8 +31,11 @@ def direct_based_off_user(request):
 
 @login_required
 def admin_dashboard(request):
-    return HttpResponse("Admin Dashboard")
+    return render(request, "admin_dashboard.html")
 
+@login_required
+def manage_users(request):
+    return HttpResponse("Manage Users")
 
 def logout_view(request):
     logout(request)
