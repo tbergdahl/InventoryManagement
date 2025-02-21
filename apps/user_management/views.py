@@ -2,10 +2,10 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from .models import CustomUser
-
+from django.http import HttpResponse
 def login_user(request):
-    user = CustomUser.objects.get(username="trentonb")
-    user.set_password("McIlroy52@")
+    user = CustomUser.objects.get(username="testemployee")
+    user.set_password("dumbpassword1@")
     user.save()
     if request.method == "POST":
         print("Validating user")
@@ -17,16 +17,22 @@ def login_user(request):
             login(request, user)
             return redirect("index")  # Redirect to the user list page
         else:
-            
             return render(request, "login.html", {"error": "Invalid username or password"})
     
     return render(request, "login.html")
 
 @login_required
-def index(request):
-    all_users = CustomUser.objects.all()
-    print("rendering user page")
-    return render(request, "index.html", {"users": all_users})
+def direct_based_off_user(request):
+    current_user = request.user
+    if current_user.usertype == CustomUser.UType.ADMIN:
+        return redirect("admin_dashboard")
+    else:
+        return redirect("inventory_page")
+
+@login_required
+def admin_dashboard(request):
+    return HttpResponse("Admin Dashboard")
+
 
 def logout_view(request):
     logout(request)
