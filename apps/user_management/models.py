@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 
+
 class CustomUser(AbstractUser):
     class UType(models.TextChoices):
         ADMIN = 'ADMIN', 'Admin'
