@@ -1,6 +1,6 @@
 # Sprint x Report (1/12/25 - 2/28/2025)
 ## What's New (User Facing)
-* Feature 1 or Bug Fix 1
+* Fixed login view bug where it would direct the user to a page that doesn't exist
 * Feature 2 or Bug Fix 2
 * Feature n or Bug Fix n
 ## Work Summary (Developer Facing)
@@ -18,7 +18,7 @@ it would be so much work"), and (c) the issue is added to a subsequent sprint, s
 that it can be addressed later.
 ## Completed Issues/User Stories
 Here are links to the issues that we completed in this sprint:
-* URL of issue 1
+* [login view bug URL](https://github.com/tbergdahl/InventoryManagement/issues/1)
 * URL of issue 2
 * URL of issue n
 Reminders (Remove this section when you save the file):
