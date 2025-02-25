@@ -59,3 +59,10 @@ Here are changes we plan to implement in the next sprint:
 * Item 1
 * Item 2
 * Item x
+## Demo Video
+Each team must upload a brief demo video to YouTube, make it unlisted and paste a link to the demo video in their Sprint Report for every sprint. 
+The demo video should showcase the activities performed by the team for a given sprint. 
+The demo video need not be professionally edited, they can be informal. 
+The demo video need not be long, 15 minutes long at most.
+
+
