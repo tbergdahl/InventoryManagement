@@ -11,13 +11,17 @@
             {{ item.count}}
             <form method="POST" action="{% url 'delete_item' item.id %}" style="display:inline;">
                 {% csrf_token %}
-                <button type="submit">Delete</button>
+                {% if is_admin %}
+                    <button type="submit">Delete</button>
+                {% endif %}
             </form>
         </li>
         {% empty %}
         <li>No items found.</li>
         {% endfor %}
     </ul>
-    <a href="{% url 'create_item' %}">Create a new item</a>
+    {% if is_admin %}
+        <a href="{% url 'create_item' %}">Create a new item</a>
+    {% endif %}
 </body>
 </html>
