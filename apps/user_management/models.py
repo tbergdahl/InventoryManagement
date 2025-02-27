@@ -9,3 +9,6 @@ class CustomUser(AbstractUser):
         NORMAL = 'NORMAL', 'Normal'
         
     usertype = models.CharField(max_length=10, choices= UType.choices, default=UType.NORMAL)
+    
+    def isAdmin(self):
+        return (self.usertype == self.UType.ADMIN)
