@@ -1,12 +1,12 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from .models import CustomUser
 from django.http import HttpResponse
+from .forms import CreateUserForm
+
+
 def login_user(request):
-    user = CustomUser.objects.get(username="testemployee")
-    user.set_password("dumbpassword1@")
-    user.save()
     if request.method == "POST":
         print("Validating user")
         username = request.POST["username"]
@@ -35,7 +35,23 @@ def admin_dashboard(request):
 
 @login_required
 def manage_users(request):
-    return HttpResponse("Manage Users")
+    users = CustomUser.objects.all()  # Get all users
+    if request.method == 'POST':
+        if 'delete_user' in request.POST:
+            user_id = request.POST.get('delete_user')
+            user = get_object_or_404(CustomUser, id=user_id)
+            user.delete()
+            return redirect('manage_users')  # Redirect to refresh the page after deletion
+        elif 'create_user' in request.POST:
+            form = CreateUserForm(request.POST)
+            if form.is_valid():
+                form.save()
+                return redirect('manage_users')  # Redirect to refresh the page after creation
+    else:
+        form = CreateUserForm()
+    filtered_users = list(filter(lambda user: not user.isAdmin(), users))
+    print(filtered_users)
+    return render(request, 'manage_users.html', {'users': filtered_users, 'form': form})
 
 def logout_view(request):
     logout(request)
