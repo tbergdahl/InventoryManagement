@@ -1,0 +1,23 @@
+<!-- create_item.html -->
+<!DOCTYPE html>
+<body>
+    
+    <hr>
+    <h2>Inventory List</h2>
+    <ul>
+        {% for item in items %}
+        <li>
+            {{ item.name }} 
+            {{ item.count}}
+            <form method="POST" action="{% url 'delete_item' item.id %}" style="display:inline;">
+                {% csrf_token %}
+                <button type="submit">Delete</button>
+            </form>
+        </li>
+        {% empty %}
+        <li>No items found.</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'create_item' %}">Create a new item</a>
+</body>
+</html>

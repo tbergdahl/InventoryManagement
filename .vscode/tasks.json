@@ -14,6 +14,18 @@
         "type": "shell",
         "command": "python manage.py createsuperuser",
         "problemMatcher": []
+      },
+      {
+        "label": "Compile models into database tables to migrate",
+        "type": "shell",
+        "command": "python manage.py makemigrations",
+        "problemMatcher": []
+      },
+      {
+        "label": "Migrate Database Models",
+        "type": "shell",
+        "command": "python manage.py migrate",
+        "problemMatcher": []
       }
     ]
   }
