@@ -9,13 +9,7 @@ repeat the "What's New" list of features. Instead, help the instructor understan
 how you went about the work described there, any barriers you overcame, and any
 significant learnings for your team.
 ## Unfinished Work
-If applicable, explain the work you did not finish in this sprint. For issues/user
-stories in the current sprint that have not been closed, (a) any progress toward
-completion of the issues has been clearly tracked (by checking the checkboxes of
-acceptance criteria), (b) a comment has been added to the issue to explain why the
-issue could not be completed (e.g., "we ran out of time" or "we did not anticipate
-it would be so much work"), and (c) the issue is added to a subsequent sprint, so
-that it can be addressed later.
+We need to develop a comprehensive system that includes a login page with user authentication to grant access to different pages based on user roles. The system will also feature an inventory management module where users can monitor product inflow and outflow. This will include an inventory display page that provides real-time updates on stock levels, as well as an account management section to oversee user credentials and access permissions. Additionally, the system will generate reports using visual representations like pie charts and bar charts to analyze inventory trends and performance. An inventory login page will also be implemented to ensure secure access to stock-related information.
 ## Completed Issues/User Stories
 Here are links to the issues that we completed in this sprint:
 * [login view bug URL](https://github.com/tbergdahl/InventoryManagement/issues/1)
