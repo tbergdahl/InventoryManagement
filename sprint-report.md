@@ -12,17 +12,11 @@ significant learnings for your team.
 We need to develop a comprehensive system that includes a login page with user authentication to grant access to different pages based on user roles. The system will also feature an inventory management module where users can monitor product inflow and outflow. This will include an inventory display page that provides real-time updates on stock levels, as well as an account management section to oversee user credentials and access permissions. Additionally, the system will generate reports using visual representations like pie charts and bar charts to analyze inventory trends and performance. An inventory login page will also be implemented to ensure secure access to stock-related information.
 ## Completed Issues/User Stories
 Here are links to the issues that we completed in this sprint:
-* [login view bug URL](https://github.com/tbergdahl/InventoryManagement/issues/1)
-* URL of issue 2
-* URL of issue n
-Reminders (Remove this section when you save the file):
-* Each issue should be assigned to a milestone
-* Each completed issue should be assigned to a pull request
-* Each completed pull request should include a link to a "Before and After" video
-* All team members who contributed to the issue should be assigned to it on
-GitHub
-* Each issue should be assigned story points using a label
-* Story points contribution of each team member should be indicated in a comment
+* [Login view bug URL](https://github.com/tbergdahl/InventoryManagement/issues/1)
+* [Admin account creation and deletion URL](https://github.com/tbergdahl/InventoryManagement/issues/3)
+* [Admin account creation usertype URL](https://github.com/tbergdahl/InventoryManagement/issues/5)
+* [Admin can create inventory items URL](https://github.com/tbergdahl/InventoryManagement/issues/7)
+
 ## Incomplete Issues/User Stories
 Here are links to issues we worked on but did not complete in this sprint:
 * URL of issue 1 <<One sentence explanation of why issue was not completed>>
