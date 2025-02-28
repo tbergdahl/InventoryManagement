@@ -16,6 +16,7 @@ Here are links to the issues that we completed in this sprint:
 * [Admin account creation and deletion URL](https://github.com/tbergdahl/InventoryManagement/issues/3)
 * [Admin account creation usertype URL](https://github.com/tbergdahl/InventoryManagement/issues/5)
 * [Admin can create inventory items URL](https://github.com/tbergdahl/InventoryManagement/issues/7)
+* [Added requirements.txt file URL](https://github.com/tbergdahl/InventoryManagement/issues/9)
 
 ## Incomplete Issues/User Stories
 Here are links to issues we worked on but did not complete in this sprint:
