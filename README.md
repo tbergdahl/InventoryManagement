@@ -11,12 +11,8 @@ instructions below (e.g., git, which versions of Ruby/Rails)
 1. Git
 2. Python
 ### Add-ons
-TODO: List which add-ons are included in the project, and the purpose each add-on
-serves in your app.
+
 ### Installation Steps
-TODO: Describe the installation process (making sure you mention `bundle install`).
-Instructions need to be such that a user can just copy/paste the commands to get
-things set up and running.
 #### MacOS
 1. git clone https://github.com/tbergdahl/InventoryManagement.git
 2. cd InventoryManagement
@@ -31,15 +27,8 @@ things set up and running.
 4. venv\Scripts\Activate
 5. pip install -r requirements.txt
 6. python manage.py runserver
-
-## Functionality
-TODO: Write usage instructions. Structuring it as a walkthrough can help structure
-this section,
-and showcase your features.
 ## Known Problems
-TODO: Describe any known issues, bugs, odd behaviors or code smells.
-Provide steps to reproduce the problem and/or name a file or a function where the
-problem lives.
+As of right now there are no known problems. Just missing functionality of most of the app.
 ## Contributing
 TODO: Leave the steps below if you want others to contribute to your project.
 1. Fork it!
@@ -48,8 +37,6 @@ TODO: Leave the steps below if you want others to contribute to your project.
 4. Push to the branch: `git push origin my-new-feature`
 5. Submit a pull request :D
 ## Additional Documentation
-TODO: Provide links to additional documentation that may exist in the repo, e.g.,
 * [Sprint report](https://github.com/tbergdahl/InventoryManagement/blob/main/sprint-report.md)
-* User links
 ## License
 [MIT License](https://github.com/tbergdahl/InventoryManagement/blob/main/License.txt)
