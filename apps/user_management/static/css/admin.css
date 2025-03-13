@@ -1,0 +1,46 @@
+/* General body styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 40px;
+    color: #333;
+}
+
+/* Header styles */
+h1 {
+    color: #222;
+    font-size: 28px;
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+/* Manage user & accounts button styling */
+.options {
+    list-style-type: none;
+    padding: 0;
+    max-width: 250px;
+    margin: 0 auto;
+}
+
+.options li {
+    margin: 20px 0;
+}
+
+.options a {
+    display: block;
+    text-decoration: none;
+    background-color: #007bff;
+    color: #fff;
+    padding: 12px 20px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    text-align: center;
+    font-size: 16px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.options a:hover {
+    background-color: #0056b3;
+    transform: translateY(-1px); 
+}
