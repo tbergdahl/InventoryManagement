@@ -1,18 +1,34 @@
-<!-- create_item.html -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create Item</title>
-</head>
-<body>
-    <h1>Create a New Item</h1>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Create Item</button>
-    </form>
-    <a href="{% url 'inventory_home' %}">Back to Home</a>
-</body>
-</html>
+<form method="post" id="selection-form">
+    {% csrf_token %}
+    <label for="form_type">Choose item type:</label>
+    <select id="form_type" name="form_type">
+      <option value="">-- Select --</option>
+      <option value="perish">Perishable</option>
+      <option value="non-perish">Non-Perishable</option>
+    </select>
+  </form>
+  
+  <div id="form-container">
+
+  </div>
+  
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $('#form_type').change(function() {
+      var selectedForm = $(this).val();
+      if (selectedForm) {
+        $.ajax({
+          url: "{% url 'load_form' %}",
+          data: {
+            'form_type': selectedForm
+          },
+          success: function(data) {
+            $('#form-container').html(data.html);
+          }
+        });
+      } else {
+        $('#form-container').html('');
+      }
+    });
+  </script>
+  
