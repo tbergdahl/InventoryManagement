@@ -1,5 +1,5 @@
 from django import forms
-from .models import PerishableInventoryItem
+from .models import PerishableInventoryItem, NonPerishableInventoryItem
 
 
 class PerishableInventoryItemForm(forms.ModelForm):
@@ -9,3 +9,8 @@ class PerishableInventoryItemForm(forms.ModelForm):
         widgets = {
             'expiry_date': forms.DateInput(attrs={'type': 'date'})
         }
+        
+class NonPerishableInventoryItemForm(forms.ModelForm):
+    class Meta:
+        model = NonPerishableInventoryItem
+        fields = ['name', 'category', 'count']
