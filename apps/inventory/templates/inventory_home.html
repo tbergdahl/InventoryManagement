@@ -1,27 +1,40 @@
-<!-- create_item.html -->
+{% load static %}
+
 <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Inventory Home</title>
+    <link rel="stylesheet" href="{% static 'css/inventory_home.css' %}">
+</head>
 <body>
-    
+
+<div class="container">
     <hr>
     <h2>Inventory List</h2>
+
     <ul>
         {% for item in items %}
-        <li>
-            {{ item.name }} 
-            {{ item.count}}
-            <form method="POST" action="{% url 'delete_item' item.id %}" style="display:inline;">
-                {% csrf_token %}
-                {% if is_admin %}
-                    <button type="submit">Delete</button>
-                {% endif %}
-            </form>
-        </li>
+            <li>
+                <span>{{ item.name }} ({{ item.count }})</span>
+                <form method="POST" action="{% url 'delete_item' item.id %}" style="display:inline;">
+                    {% csrf_token %}
+                    {% if is_admin %}
+                        <button type="submit">Delete</button>
+                    {% endif %}
+                </form>
+            </li>
         {% empty %}
-        <li>No items found.</li>
+            <li>No items found.</li>
         {% endfor %}
     </ul>
+
     {% if is_admin %}
-        <a href="{% url 'create_item' %}">Create a new item</a>
+        <div class="create-button-wrapper">
+            <a href="{% url 'create_item' %}">Create a new item</a>
+        </div>
     {% endif %}
+</div>
+
 </body>
 </html>
