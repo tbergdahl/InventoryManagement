@@ -1,0 +1,100 @@
+/* General body styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 40px;
+    color: #333;
+}
+
+/* Container for the content */
+.container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* Header styles */
+h2 {
+    color: #222;
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+/* Inventory list styles */
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li {
+    padding: 12px;
+    background-color: #f4f4f9;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Inventory item text */
+ul li span {
+    font-size: 16px;
+    color: #333;
+}
+
+/* Delete button styles */
+button[type="submit"] {
+    background-color: #dc3545;
+    color: white;
+    padding: 8px 16px;
+    font-size: 14px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    outline: none;
+}
+
+button[type="submit"]:hover {
+    background-color: #c82333;
+}
+
+/* Create item link styles */
+a {
+    display: inline-block;
+    background-color: #28a745;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 16px;
+    transition: background-color 0.2s ease;
+    margin-top: 20px;
+}
+
+a:hover {
+    background-color: #218838;
+}
+
+/* Center the create button */
+.create-button-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+/* Divider line styles */
+hr {
+    border: 0;
+    height: 1px;
+    background-color: #ddd;
+    margin-bottom: 20px;
+}
+
