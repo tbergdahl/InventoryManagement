@@ -67,10 +67,10 @@ button[type="submit"]:hover {
     background-color: #c82333;
 }
 
-/* Create item link styles */
-a {
+/* styles for create button */
+.create-button-wrapper a {
     display: inline-block;
-    background-color: #28a745;
+    background-color: #337ab7;
     color: white;
     padding: 10px 20px;
     text-decoration: none;
@@ -80,8 +80,8 @@ a {
     margin-top: 20px;
 }
 
-a:hover {
-    background-color: #218838;
+.create-button-wrapper a:hover {
+    background-color: #286090;
 }
 
 /* Center the create button */
@@ -97,4 +97,3 @@ hr {
     background-color: #ddd;
     margin-bottom: 20px;
 }
-

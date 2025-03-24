@@ -1,34 +1,71 @@
-<form method="post" id="selection-form">
-    {% csrf_token %}
-    <label for="form_type">Choose item type:</label>
-    <select id="form_type" name="form_type">
-      <option value="">-- Select --</option>
-      <option value="perish">Perishable</option>
-      <option value="non-perish">Non-Perishable</option>
-    </select>
-  </form>
-  
-  <div id="form-container">
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Inventory Item</title>
+    <link rel="stylesheet" href="{% static 'css/create_inventory_item.css' %}">
+</head>
+<body>
+<div class="container">
+    <h2>Create a New Inventory Item</h2>
+    <form method="POST">
+        {% csrf_token %}
+        
+        <!-- Render item type -->
+        <div>
+            {{ form.item_type.label_tag }}
+            {{ form.item_type }}
+        </div>
 
-  </div>
-  
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script>
-    $('#form_type').change(function() {
-      var selectedForm = $(this).val();
-      if (selectedForm) {
-        $.ajax({
-          url: "{% url 'load_form' %}",
-          data: {
-            'form_type': selectedForm
-          },
-          success: function(data) {
-            $('#form-container').html(data.html);
-          }
-        });
-      } else {
-        $('#form-container').html('');
-      }
-    });
-  </script>
-  
+        <!-- Render common fields -->
+        <div>
+            {{ form.name.label_tag }}
+            {{ form.name }}
+        </div>
+        <div>
+            {{ form.category.label_tag }}
+            {{ form.category }}
+        </div>
+        <div>
+            {{ form.count.label_tag }}
+            {{ form.count }}
+        </div>
+
+        <!-- Expiry date field wrapped in a div -->
+        <div id="expiry_field">
+            {{ form.expiry_date.label_tag }}
+            {{ form.expiry_date }}
+            <p>{{ form.expiry_date.help_text }}</p>
+        </div>
+        
+        <button type="submit">Create Item</button>
+    </form>
+    <a href="{% url 'inventory_home' %}">Back to Inventory</a>
+</div>
+
+<!-- JavaScript to toggle the expiry field if user selects perishable -->
+<script>
+function toggleExpiryField() {
+    var radios = document.getElementsByName('item_type');
+    var expiryField = document.getElementById('expiry_field');
+    var show = false;
+    for (var i = 0; i < radios.length; i++) {
+        if (radios[i].checked && radios[i].value === 'perishable') {
+            show = true;
+            break;
+        }
+    }
+    expiryField.style.display = show ? 'block' : 'none';
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    toggleExpiryField();
+    var radios = document.getElementsByName('item_type');
+    for (var i = 0; i < radios.length; i++) {
+        radios[i].addEventListener('change', toggleExpiryField);
+    }
+});
+</script>
+</body>
+</html>
