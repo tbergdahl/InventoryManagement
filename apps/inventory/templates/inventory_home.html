@@ -1,5 +1,4 @@
 {% load static %}
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,33 +7,34 @@
     <link rel="stylesheet" href="{% static 'css/inventory_home.css' %}">
 </head>
 <body>
-
 <div class="container">
     <hr>
     <h2>Inventory List</h2>
-
     <ul>
         {% for item in items %}
             <li>
-                <span>{{ item.name }} ({{ item.count }})</span>
+                <span>
+                    {{ item.name }} ({{ item.count }})
+                    {% if item.is_perishable %}
+                        - Expires: {{ item.expiry_date }}
+                    {% endif %}
+                </span>
+                {% if is_admin %}
                 <form method="POST" action="{% url 'delete_item' item.id %}" style="display:inline;">
                     {% csrf_token %}
-                    {% if is_admin %}
-                        <button type="submit">Delete</button>
-                    {% endif %}
+                    <button type="submit">Delete</button>
                 </form>
+                {% endif %}
             </li>
         {% empty %}
             <li>No items found.</li>
         {% endfor %}
     </ul>
-
     {% if is_admin %}
         <div class="create-button-wrapper">
             <a href="{% url 'create_item' %}">Create a new item</a>
         </div>
     {% endif %}
 </div>
-
 </body>
 </html>
