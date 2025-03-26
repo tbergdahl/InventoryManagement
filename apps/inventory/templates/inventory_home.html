@@ -9,7 +9,7 @@
 <body>
 <div class="container">
     <hr>
-    <!-- Header Row with Inventory Title and Filter Button -->
+    <!-- Header Row with Inventory Title, Filter, and Sort -->
     <div class="header-row">
         <h2>Inventory List</h2>
         <div class="filter-form">
@@ -26,7 +26,14 @@
                       <option value="snacks" {% if selected_category == 'snacks' %}selected{% endif %}>Snacks</option>
                       <option value="supplies" {% if selected_category == 'supplies' %}selected{% endif %}>Supplies</option>
                  </select>
-                 <button type="submit">Apply</button>
+                 
+                 <label for="sort">Sort by:</label>
+                 <select id="sort" name="sort">
+                      <option value="default" {% if selected_sort == "default" %}selected{% endif %}>Recently Added</option>
+                      <option value="expiry" {% if selected_sort == "expiry" %}selected{% endif %}>Expiry Date</option>
+                 </select>
+                 
+                 <button type="submit" class="filter-apply">Apply</button>
             </form>
         </div>
     </div>
