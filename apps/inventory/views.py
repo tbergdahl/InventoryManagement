@@ -2,18 +2,35 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from .forms import InventoryItemForm
 from .models import PerishableInventoryItem, NonPerishableInventoryItem, InventoryItem
+import datetime
 
 # 'load' function
 def inventory_main_page(request):
     category_filter = request.GET.get('category', '')
+    sort_order = request.GET.get('sort', '')
+    items = InventoryItem.objects.all()
+    
+    # apply category filter
     if category_filter:
-        items = InventoryItem.objects.filter(category=category_filter).order_by('-id')
+        items = items.filter(category=category_filter)
+    
+    # apply sorting filter
+    if sort_order == 'expiry':
+        # if an item has an expiry_date use it to sort
+        # else set not perish items to maximum date so they're at the bottom
+        items = sorted(
+            items,
+            key=lambda i: i.expiry_date if hasattr(i, 'expiry_date') and i.expiry_date else datetime.date.max
+        )
     else:
-        items = InventoryItem.objects.all().order_by('-id')
+        # sort by most recent first
+        items = items.order_by('-id')
+    
     return render(request, 'inventory_home.html', {
         'is_admin': request.user.isAdmin(), 
         'items': items,
         'selected_category': category_filter,
+        'selected_sort': sort_order,
     })
 
 def create_inventory_item(request):
