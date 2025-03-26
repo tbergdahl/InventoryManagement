@@ -39,9 +39,16 @@
             <p>{{ form.expiry_date.help_text }}</p>
         </div>
         
-        <button type="submit">Create Item</button>
+        <!-- Button row for back and submit button CSS -->
+        <div class="button-row">
+            <div class="back-button-wrapper">
+                <a href="{% url 'inventory_home' %}">Back to Inventory</a>
+            </div>
+            <div class="create-button-wrapper">
+                <button type="submit">Create Item</button>
+            </div>
+        </div>
     </form>
-    <a href="{% url 'inventory_home' %}">Back to Inventory</a>
 </div>
 
 <!-- JavaScript to toggle the expiry field if user selects perishable -->

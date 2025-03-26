@@ -5,10 +5,21 @@ ITEM_TYPE_CHOICES = (
     ('non-perishable', 'Non-Perishable'),
 )
 
+CATEGORY_CHOICES = (
+    ('bakery', 'Bakery'),
+    ('beverages', 'Beverages'),
+    ('canned', 'Canned Goods'),
+    ('dairy', 'Dairy'),
+    ('fresh', 'Fresh Produce'),
+    ('frozen', 'Frozen Foods'),
+    ('snacks', 'Snacks'),
+    ('supplies', 'Supplies'),
+)
+
 class InventoryItemForm(forms.Form):
     item_type = forms.ChoiceField(choices=ITEM_TYPE_CHOICES, widget=forms.RadioSelect)
     name = forms.CharField(max_length=100)
-    category = forms.CharField(max_length=100)
+    category = forms.ChoiceField(choices=CATEGORY_CHOICES)
     count = forms.IntegerField(min_value=0)
     expiry_date = forms.DateField(
         required=False, 

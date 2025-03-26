@@ -97,3 +97,49 @@ hr {
     background-color: #ddd;
     margin-bottom: 20px;
 }
+
+/* Styles for back button */
+.back-button-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.back-button-wrapper a {
+    display: inline-block;
+    background-color: #337ab7;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 16px;
+    transition: background-color 0.2s ease;
+}
+
+.back-button-wrapper a:hover {
+    background-color: #286090;
+}
+
+.button-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.back-button-wrapper a,
+.create-button-wrapper a {
+    display: inline-block;
+    background-color: #337ab7;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 16px;
+    transition: background-color 0.2s ease;
+}
+
+.back-button-wrapper a:hover,
+.create-button-wrapper a:hover {
+    background-color: #286090;
+}
