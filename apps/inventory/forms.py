@@ -12,6 +12,7 @@ CATEGORY_CHOICES = (
     ('dairy', 'Dairy'),
     ('fresh', 'Fresh Produce'),
     ('frozen', 'Frozen Foods'),
+    ('other', 'Other'),
     ('snacks', 'Snacks'),
     ('supplies', 'Supplies'),
 )

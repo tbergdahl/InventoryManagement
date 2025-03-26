@@ -33,20 +33,18 @@ ul {
 }
 
 ul li {
-    padding: 12px;
+    padding: 8px;
     background-color: #f4f4f9;
-    border-radius: 8px;
-    margin-bottom: 12px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    border-radius: 6px;
+    margin-bottom: 8px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-/* Inventory item text */
 ul li span {
-    font-size: 16px;
-    color: #333;
+    font-size: 14px;
 }
 
 /* Delete button styles */
@@ -141,5 +139,48 @@ hr {
 
 .back-button-wrapper a:hover,
 .create-button-wrapper a:hover {
+    background-color: #286090;
+}
+
+/* Header row to align the title and filter form */
+.header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+/* Filter form styles */
+.filter-form {
+    display: flex;
+    align-items: center;
+}
+
+.filter-form label {
+    margin-right: 10px;
+    font-weight: bold;
+    color: #222;
+}
+
+.filter-form select {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+
+.filter-form button {
+    padding: 8px 16px;
+    background-color: #337ab7;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    transition: background-color 0.2s ease;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.filter-form button:hover {
     background-color: #286090;
 }

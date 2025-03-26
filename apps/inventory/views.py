@@ -5,10 +5,16 @@ from .models import PerishableInventoryItem, NonPerishableInventoryItem, Invento
 
 # 'load' function
 def inventory_main_page(request):
-    # Order items with the most recent id first
-    items = InventoryItem.objects.all().order_by('-id')
-    return render(request, 'inventory_home.html', {'is_admin': request.user.isAdmin(), 'items': items})
-
+    category_filter = request.GET.get('category', '')
+    if category_filter:
+        items = InventoryItem.objects.filter(category=category_filter).order_by('-id')
+    else:
+        items = InventoryItem.objects.all().order_by('-id')
+    return render(request, 'inventory_home.html', {
+        'is_admin': request.user.isAdmin(), 
+        'items': items,
+        'selected_category': category_filter,
+    })
 
 def create_inventory_item(request):
     if request.method == 'POST':

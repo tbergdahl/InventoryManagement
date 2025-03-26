@@ -9,7 +9,28 @@
 <body>
 <div class="container">
     <hr>
-    <h2>Inventory List</h2>
+    <!-- Header Row with Inventory Title and Filter Button -->
+    <div class="header-row">
+        <h2>Inventory List</h2>
+        <div class="filter-form">
+            <form method="GET">
+                 <label for="category_filter">Filter:</label>
+                 <select id="category_filter" name="category">
+                      <option value="" {% if not selected_category %}selected{% endif %}>All Categories</option>
+                      <option value="bakery" {% if selected_category == 'bakery' %}selected{% endif %}>Bakery</option>
+                      <option value="beverages" {% if selected_category == 'beverages' %}selected{% endif %}>Beverages</option>
+                      <option value="canned" {% if selected_category == 'canned' %}selected{% endif %}>Canned Goods</option>
+                      <option value="dairy" {% if selected_category == 'dairy' %}selected{% endif %}>Dairy</option>
+                      <option value="fresh" {% if selected_category == 'fresh' %}selected{% endif %}>Fresh Produce</option>
+                      <option value="frozen" {% if selected_category == 'frozen' %}selected{% endif %}>Frozen Foods</option>
+                      <option value="snacks" {% if selected_category == 'snacks' %}selected{% endif %}>Snacks</option>
+                      <option value="supplies" {% if selected_category == 'supplies' %}selected{% endif %}>Supplies</option>
+                 </select>
+                 <button type="submit">Apply</button>
+            </form>
+        </div>
+    </div>
+    
     <ul>
         {% for item in items %}
             <li>
@@ -40,8 +61,7 @@
             <a href="{% url 'create_item' %}">Create a new item</a>
         </div>
     </div>
-{% endif %}
-
+    {% endif %}
 </div>
 </body>
 </html>
