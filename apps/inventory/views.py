@@ -5,9 +5,10 @@ from .models import PerishableInventoryItem, NonPerishableInventoryItem, Invento
 
 # 'load' function
 def inventory_main_page(request):
-    # Retrieve all items regardless of type
-    items = InventoryItem.objects.all()
+    # Order items with the most recent id first
+    items = InventoryItem.objects.all().order_by('-id')
     return render(request, 'inventory_home.html', {'is_admin': request.user.isAdmin(), 'items': items})
+
 
 def create_inventory_item(request):
     if request.method == 'POST':
