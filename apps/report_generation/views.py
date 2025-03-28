@@ -1,5 +1,5 @@
 from django.http import HttpResponse
 
 
-def index(request):
-    return HttpResponse("Report Gen Page")
+def reports_page(request):
+    return HttpResponse("reports page")
