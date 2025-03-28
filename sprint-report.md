@@ -1,31 +1,33 @@
-# Sprint x Report (1/12/25 - 2/28/2025)
+# Sprint x Report (2/28/25 - 3/28/2025)
 ## What's New (User Facing)
-* Fixed login view bug where it would direct the user to a page that doesn't exist
-* User can login
-* Admin can create/delete accounts
-* Accounts can add inventory items
+* Inventory page now has more functionality (sorting/filtering/creating items)
+* UI/Style changes across the entie app
+* 
+* 
 ## Work Summary (Developer Facing)
-This sprint we completed the Solution approach document as well as setting up a lot of code in the backend. This was fairly straightforward but gives us a good base to 
-build off of and complete more of the app as well as the frontend. This sprint was a lot of skeletal code and account management related code.
+This sprint we completed building out the inventory and report generation pages. This is all completely new and some of the techincal barriers we overcame were fixing/rewriting the routes, laying out/styling things how we wanted them on the pages, and making the app feel consistent or having a good UX.
 ## Unfinished Work
-We need to develop a comprehensive system that includes a login page with user authentication to grant access to different pages based on user roles. The system will also feature an inventory management module where users can monitor product inflow and outflow. This will include an inventory display page that provides real-time updates on stock levels, as well as an account management section to oversee user credentials and access permissions. Additionally, the system will generate reports using visual representations like pie charts and bar charts to analyze inventory trends and performance. An inventory login page will also be implemented to ensure secure access to stock-related information.
+
 ## Completed Issues/User Stories
 Here are links to the issues that we completed in this sprint:
-* [Login view bug URL](https://github.com/tbergdahl/InventoryManagement/issues/1)
-* [Admin account creation and deletion URL](https://github.com/tbergdahl/InventoryManagement/issues/3)
-* [Admin account creation usertype URL](https://github.com/tbergdahl/InventoryManagement/issues/5)
-* [Admin can create inventory items URL](https://github.com/tbergdahl/InventoryManagement/issues/7)
-* [Added requirements.txt file URL](https://github.com/tbergdahl/InventoryManagement/issues/9)
+* [Login styling](https://github.com/tbergdahl/InventoryManagement/issues/11)
+* [Admin dashboard styling](https://github.com/tbergdahl/InventoryManagement/issues/13)
+* [Creating/managing users styling](https://github.com/tbergdahl/InventoryManagement/issues/14)
+* [Inventory list formatting](https://github.com/tbergdahl/InventoryManagement/issues/16)
+* [Non-perishable items can't be created or deleted](https://github.com/tbergdahl/InventoryManagement/issues/18)
+* [No navigation functionality with the inventory app](https://github.com/tbergdahl/InventoryManagement/issues/20)
+* [Can't filter inventory by type](https://github.com/tbergdahl/InventoryManagement/issues/22)
+* [Can't sort inventory](https://github.com/tbergdahl/InventoryManagement/issues/24)
+* 
 
   
 ## Incomplete Issues/User Stories
-There are currently no issues that are incomplete yet as the app is in its very early stages.
+There are currently no issues that are incomplete.
 ## Code Files for Review
 Please review the following code files, which were actively developed during this
 sprint, for quality:
-* [user_management views.py](https://github.com/tbergdahl/InventoryManagement/blob/main/apps/user_management/views.py)
-* [user_management models.py](https://github.com/tbergdahl/InventoryManagement/blob/main/apps/user_management/models.py)
-* [user_management admin.py](https://github.com/tbergdahl/InventoryManagement/blob/main/apps/user_management/admin.py)
+* [inventory views.py](https://github.com/tbergdahl/InventoryManagement/blob/main/apps/inventory/views.py)
+* 
 
 ## 2FA code files for review
 * InventoryManagement/settings.py
@@ -34,15 +36,15 @@ sprint, for quality:
 * accounts/urls.py
 ## Retrospective Summary
 #### Here's what went well:
-* Backend setup
-* Account creation/deletion
+* Inventory item sorting/filtering
 * Bug fixes were fairly straightforward
+* 
 #### Here's what we'd like to improve:
 * Better UI
-* Having more pages implemented
+* 
 #### Here are changes we plan to implement in the next sprint:
-* Add styling to the user interface
-* Build out more of the pages of the app
+* Implement the testing we planned out in our last document
+* 
 ## Demo Video
 [CptS 582 Sprint 1 Video](https://youtu.be/FLbpDkTvuso)
 
