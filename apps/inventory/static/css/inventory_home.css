@@ -65,27 +65,58 @@ button[type="submit"]:hover {
     background-color: #c82333;
 }
 
-/* styles for create button */
-.create-button-wrapper a {
+/* Button row styles */
+.button-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    gap: 10px;
+}
+
+/* Common button styles */
+.back-button-wrapper a,
+.create-button-wrapper a,
+.report-button-wrapper a {
     display: inline-block;
-    background-color: #337ab7;
-    color: white;
     padding: 10px 20px;
+    color: white;
     text-decoration: none;
     border-radius: 6px;
     font-size: 16px;
-    transition: background-color 0.2s ease;
-    margin-top: 20px;
+    transition: all 0.2s ease;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Back button styles */
+.back-button-wrapper a {
+    background-color: #337ab7;
+}
+
+.back-button-wrapper a:hover {
+    background-color: #286090;
+    transform: translateY(-1px);
+}
+
+/* Create button styles */
+.create-button-wrapper a {
+    background-color: #28a745;
 }
 
 .create-button-wrapper a:hover {
-    background-color: #286090;
+    background-color: #218838;
+    transform: translateY(-1px);
 }
 
-/* Center the create button */
-.create-button-wrapper {
-    display: flex;
-    justify-content: center;
+/* Report button styles */
+.report-button-wrapper a {
+    background-color: #6f42c1;
+}
+
+.report-button-wrapper a:hover {
+    background-color: #5a3d8e;
+    transform: translateY(-1px);
 }
 
 /* Divider line styles */
@@ -94,52 +125,6 @@ hr {
     height: 1px;
     background-color: #ddd;
     margin-bottom: 20px;
-}
-
-/* Styles for back button */
-.back-button-wrapper {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-}
-
-.back-button-wrapper a {
-    display: inline-block;
-    background-color: #337ab7;
-    color: white;
-    padding: 10px 20px;
-    text-decoration: none;
-    border-radius: 6px;
-    font-size: 16px;
-    transition: background-color 0.2s ease;
-}
-
-.back-button-wrapper a:hover {
-    background-color: #286090;
-}
-
-.button-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 20px;
-}
-
-.back-button-wrapper a,
-.create-button-wrapper a {
-    display: inline-block;
-    background-color: #337ab7;
-    color: white;
-    padding: 10px 20px;
-    text-decoration: none;
-    border-radius: 6px;
-    font-size: 16px;
-    transition: background-color 0.2s ease;
-}
-
-.back-button-wrapper a:hover,
-.create-button-wrapper a:hover {
-    background-color: #286090;
 }
 
 /* Header row to align the title and filter form */
@@ -154,19 +139,22 @@ hr {
 .filter-form {
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
 }
 
 .filter-form label {
-    margin-right: 10px;
+    margin-right: 5px;
     font-weight: bold;
     color: #222;
+    font-size: 14px;
 }
 
 .filter-form select {
-    padding: 5px;
+    padding: 8px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    margin-right: 10px;
+    font-size: 14px;
 }
 
 .filter-form button {
@@ -175,12 +163,12 @@ hr {
     color: white;
     border: none;
     border-radius: 6px;
-    font-size: 16px;
-    transition: background-color 0.2s ease;
+    font-size: 14px;
+    transition: all 0.2s ease;
     cursor: pointer;
-    margin-right: 10px;
 }
 
 .filter-form button:hover {
     background-color: #286090;
+    transform: translateY(-1px);
 }
