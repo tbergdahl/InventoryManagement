@@ -25,6 +25,12 @@ sprint, for quality:
 * [user_management views.py](https://github.com/tbergdahl/InventoryManagement/blob/main/apps/user_management/views.py)
 * [user_management models.py](https://github.com/tbergdahl/InventoryManagement/blob/main/apps/user_management/models.py)
 * [user_management admin.py](https://github.com/tbergdahl/InventoryManagement/blob/main/apps/user_management/admin.py)
+
+## 2FA code files for review
+* InventoryManagement/settings.py
+* InventoryManagement/urls.py
+* accounts/views.py
+* accounts/urls.py
 ## Retrospective Summary
 #### Here's what went well:
 * Backend setup
