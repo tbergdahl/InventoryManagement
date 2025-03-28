@@ -17,6 +17,12 @@ Here are links to the issues that we completed in this sprint:
 * [Admin can create inventory items URL](https://github.com/tbergdahl/InventoryManagement/issues/7)
 * [Added requirements.txt file URL](https://github.com/tbergdahl/InventoryManagement/issues/9)
 
+## 2FA code files for review
+* InventoryManagement/settings.py
+* InventoryManagement/urls.py
+* accounts/views.py
+* accounts/urls.py
+  
 ## Incomplete Issues/User Stories
 There are currently no issues that are incomplete yet as the app is in its very early stages.
 ## Code Files for Review
