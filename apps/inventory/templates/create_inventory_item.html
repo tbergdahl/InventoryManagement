@@ -1,18 +1,78 @@
-<!-- create_item.html -->
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create Item</title>
+    <title>Create Inventory Item</title>
+    <link rel="stylesheet" href="{% static 'css/create_inventory_item.css' %}">
 </head>
 <body>
-    <h1>Create a New Item</h1>
-    <form method="post">
+<div class="container">
+    <h2>Create a New Inventory Item</h2>
+    <form method="POST">
         {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Create Item</button>
+        
+        <!-- Render item type -->
+        <div>
+            {{ form.item_type.label_tag }}
+            {{ form.item_type }}
+        </div>
+
+        <!-- Render common fields -->
+        <div>
+            {{ form.name.label_tag }}
+            {{ form.name }}
+        </div>
+        <div>
+            {{ form.category.label_tag }}
+            {{ form.category }}
+        </div>
+        <div>
+            {{ form.count.label_tag }}
+            {{ form.count }}
+        </div>
+
+        <!-- Expiry date field wrapped in a div -->
+        <div id="expiry_field">
+            {{ form.expiry_date.label_tag }}
+            {{ form.expiry_date }}
+            <p>{{ form.expiry_date.help_text }}</p>
+        </div>
+        
+        <!-- Button row for back and submit button CSS -->
+        <div class="button-row">
+            <div class="back-button-wrapper">
+                <a href="{% url 'inventory_home' %}">Back to Inventory</a>
+            </div>
+            <div class="create-button-wrapper">
+                <button type="submit">Create Item</button>
+            </div>
+        </div>
     </form>
-    <a href="{% url 'inventory_home' %}">Back to Home</a>
+</div>
+
+<!-- JavaScript to toggle the expiry field if user selects perishable -->
+<script>
+function toggleExpiryField() {
+    var radios = document.getElementsByName('item_type');
+    var expiryField = document.getElementById('expiry_field');
+    var show = false;
+    for (var i = 0; i < radios.length; i++) {
+        if (radios[i].checked && radios[i].value === 'perishable') {
+            show = true;
+            break;
+        }
+    }
+    expiryField.style.display = show ? 'block' : 'none';
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    toggleExpiryField();
+    var radios = document.getElementsByName('item_type');
+    for (var i = 0; i < radios.length; i++) {
+        radios[i].addEventListener('change', toggleExpiryField);
+    }
+});
+</script>
 </body>
 </html>

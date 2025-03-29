@@ -1,68 +1,39 @@
-# Sprint x Report (1/12/25 - 2/28/2025)
+# Sprint x Report (2/28/25 - 3/28/2025)
 ## What's New (User Facing)
-* Fixed login view bug where it would direct the user to a page that doesn't exist
-* Feature 2 or Bug Fix 2
-* Feature n or Bug Fix n
+* Inventory page now has more functionality (sorting/filtering/creating items)
+* UI/Style changes across the entie app
+* Generate Reports Page
 ## Work Summary (Developer Facing)
-Provide a one paragraph synposis of what your team accomplished this sprint. Don't
-repeat the "What's New" list of features. Instead, help the instructor understand
-how you went about the work described there, any barriers you overcame, and any
-significant learnings for your team.
+This sprint we completed building out the inventory and report generation pages. This is all completely new and some of the techincal barriers we overcame were fixing/rewriting the routes, laying out/styling things how we wanted them on the pages, and making the app feel consistent or having a good UX. And we also did the two factor authentication using email method. 
 ## Unfinished Work
-If applicable, explain the work you did not finish in this sprint. For issues/user
-stories in the current sprint that have not been closed, (a) any progress toward
-completion of the issues has been clearly tracked (by checking the checkboxes of
-acceptance criteria), (b) a comment has been added to the issue to explain why the
-issue could not be completed (e.g., "we ran out of time" or "we did not anticipate
-it would be so much work"), and (c) the issue is added to a subsequent sprint, so
-that it can be addressed later.
+Integrating the MFA for the login/signup page
 ## Completed Issues/User Stories
 Here are links to the issues that we completed in this sprint:
-* [login view bug URL](https://github.com/tbergdahl/InventoryManagement/issues/1)
-* URL of issue 2
-* URL of issue n
-Reminders (Remove this section when you save the file):
-* Each issue should be assigned to a milestone
-* Each completed issue should be assigned to a pull request
-* Each completed pull request should include a link to a "Before and After" video
-* All team members who contributed to the issue should be assigned to it on
-GitHub
-* Each issue should be assigned story points using a label
-* Story points contribution of each team member should be indicated in a comment
+* [Login styling](https://github.com/tbergdahl/InventoryManagement/issues/11)
+* [Admin dashboard styling](https://github.com/tbergdahl/InventoryManagement/issues/13)
+* [Creating/managing users styling](https://github.com/tbergdahl/InventoryManagement/issues/14)
+* [Inventory list formatting](https://github.com/tbergdahl/InventoryManagement/issues/16)
+* [Non-perishable items can't be created or deleted](https://github.com/tbergdahl/InventoryManagement/issues/18)
+* [No navigation functionality with the inventory app](https://github.com/tbergdahl/InventoryManagement/issues/20)
+* [Can't filter inventory by type](https://github.com/tbergdahl/InventoryManagement/issues/22)
+* [Can't sort inventory](https://github.com/tbergdahl/InventoryManagement/issues/24)  
 ## Incomplete Issues/User Stories
-Here are links to issues we worked on but did not complete in this sprint:
-* URL of issue 1 <<One sentence explanation of why issue was not completed>>
-* URL of issue 2 <<One sentence explanation of why issue was not completed>>
-* URL of issue n <<One sentence explanation of why issue was not completed>>
-Examples of explanations (Remove this section when you save the file):
-* "We ran into a complication we did not anticipate (explain briefly)."
-* "We decided that the feature did not add sufficient value for us to work on it
-in this sprint (explain briefly)."
-* "We could not reproduce the bug" (explain briefly).
-* "We did not get to this issue because..." (explain briefly)
+There are currently no issues that are incomplete.
 ## Code Files for Review
 Please review the following code files, which were actively developed during this
 sprint, for quality:
-* [Name of code file 1](https://github.com/your_repo/file_extension)
-* [Name of code file 2](https://github.com/your_repo/file_extension)
-* [Name of code file 3](https://github.com/your_repo/file_extension)
+* [inventory views.py](https://github.com/tbergdahl/InventoryManagement/blob/main/apps/inventory/views.py) 
 ## Retrospective Summary
-Here's what went well:
-* Item 1
-* Item 2
-* Item x
-Here's what we'd like to improve:
-* Item 1
-* Item 2
-* Item x
-Here are changes we plan to implement in the next sprint:
-* Item 1
-* Item 2
-* Item x
+#### Here's what went well:
+* Inventory item sorting/filtering
+* Bug fixes were fairly straightforward
+* Style changes enhanced clarity and UX
+#### Here's what we'd like to improve:
+* Add graphs/charts to reports
+#### Here are changes we plan to implement in the next sprint:
+* Implement the testing we planned out in our last document
+* Add small functionality changes across the app
 ## Demo Video
-Each team must upload a brief demo video to YouTube, make it unlisted and paste a link to the demo video in their Sprint Report for every sprint. 
-The demo video should showcase the activities performed by the team for a given sprint. 
-The demo video need not be professionally edited, they can be informal. 
-The demo video need not be long, 15 minutes long at most.
+[CptS 582 Sprint 2 Video](https://youtu.be/6mVaMp5jLGo)
 
 
