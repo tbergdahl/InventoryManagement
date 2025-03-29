@@ -16,7 +16,8 @@ Here are links to the issues that we completed in this sprint:
 * [Non-perishable items can't be created or deleted](https://github.com/tbergdahl/InventoryManagement/issues/18)
 * [No navigation functionality with the inventory app](https://github.com/tbergdahl/InventoryManagement/issues/20)
 * [Can't filter inventory by type](https://github.com/tbergdahl/InventoryManagement/issues/22)
-* [Can't sort inventory](https://github.com/tbergdahl/InventoryManagement/issues/24)  
+* [Can't sort inventory](https://github.com/tbergdahl/InventoryManagement/issues/24)
+* Double factor authentication - create login.html, signup.html, verify-code.html, welcome-page and logout-page
 ## Incomplete Issues/User Stories
 There are currently no issues that are incomplete.
 ## Code Files for Review
@@ -28,6 +29,8 @@ sprint, for quality:
 * Inventory item sorting/filtering
 * Bug fixes were fairly straightforward
 * Style changes enhanced clarity and UX
+* Do check up the email otp sending and verifying it and gives the time limit within 10 minutes.
+  
 #### Here's what we'd like to improve:
 * Add graphs/charts to reports
 #### Here are changes we plan to implement in the next sprint:
