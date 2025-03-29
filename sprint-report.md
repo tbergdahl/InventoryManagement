@@ -17,6 +17,16 @@ Here are links to the issues that we completed in this sprint:
 * [No navigation functionality with the inventory app](https://github.com/tbergdahl/InventoryManagement/issues/20)
 * [Can't filter inventory by type](https://github.com/tbergdahl/InventoryManagement/issues/22)
 * [Can't sort inventory](https://github.com/tbergdahl/InventoryManagement/issues/24)
+* [InventoryManagement/ (project folder)](https://github.com/tbergdahl/InventoryManagement/tree/code-recovery/InventoryManagement)
+* [settings.py](https://github.com/tbergdahl/InventoryManagement/blob/code-recovery/InventoryManagement/settings.py)
+*  [accounts/views.py](https://github.com/tbergdahl/InventoryManagement/blob/code-recovery/accounts/views.py)
+* [accounts/urls.py](https://github.com/tbergdahl/InventoryManagement/blob/code-recovery/accounts/urls.py)
+* [login.html](https://github.com/tbergdahl/InventoryManagement/blob/code-recovery/accounts/templates/accounts/login.html)  
+* [logout.html](https://github.com/tbergdahl/InventoryManagement/blob/code-recovery/accounts/templates/accounts/logout.html)  
+* [signup.html](https://github.com/tbergdahl/InventoryManagement/blob/code-recovery/accounts/templates/accounts/signup.html)  
+* [verify_otp.html](https://github.com/tbergdahl/InventoryManagement/blob/code-recovery/accounts/templates/accounts/verify_otp.html)
+
+
 * Double factor authentication - create login.html, signup.html, verify-code.html, welcome-page and logout-page
 ## Incomplete Issues/User Stories
 There are currently no issues that are incomplete.
