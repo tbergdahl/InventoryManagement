@@ -16,6 +16,9 @@ Here are links to the issues that we completed in this sprint:
 * [Admin account creation usertype URL](https://github.com/tbergdahl/InventoryManagement/issues/5)
 * [Admin can create inventory items URL](https://github.com/tbergdahl/InventoryManagement/issues/7)
 * [Added requirements.txt file URL](https://github.com/tbergdahl/InventoryManagement/issues/9)
+* [Implement Navigation to Report Page From Inventory Screen](https://github.com/tbergdahl/InventoryManagement/issues/27)
+* [Implement UI for admin report creation](https://github.com/tbergdahl/InventoryManagement/issues?q=is%3Aissue%20state%3Aclosed)
+* [Implement the report generation based off UI feedback](https://github.com/tbergdahl/InventoryManagement/issues/32)
 
 ## Incomplete Issues/User Stories
 There are currently no issues that are incomplete yet as the app is in its very early stages.
@@ -25,17 +28,22 @@ sprint, for quality:
 * [user_management views.py](https://github.com/tbergdahl/InventoryManagement/blob/main/apps/user_management/views.py)
 * [user_management models.py](https://github.com/tbergdahl/InventoryManagement/blob/main/apps/user_management/models.py)
 * [user_management admin.py](https://github.com/tbergdahl/InventoryManagement/blob/main/apps/user_management/admin.py)
+* [report_generation](https://github.com/tbergdahl/InventoryManagement/blob/main/apps/report_generation/views.py)
+* [report_generation/templates](https://github.com/tbergdahl/InventoryManagement/tree/main/apps/report_generation/templates)
 ## Retrospective Summary
 #### Here's what went well:
 * Backend setup
 * Account creation/deletion
 * Bug fixes were fairly straightforward
+* Backend setup allowed for easy filtering for reports
 #### Here's what we'd like to improve:
 * Better UI
 * Having more pages implemented
+* More report types
 #### Here are changes we plan to implement in the next sprint:
 * Add styling to the user interface
 * Build out more of the pages of the app
+* Testing
 ## Demo Video
 [CptS 582 Sprint 1 Video](https://youtu.be/FLbpDkTvuso)
 
