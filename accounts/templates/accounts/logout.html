@@ -1,10 +1,70 @@
+
+
 <!DOCTYPE html>
 <html>
 <head>
     <title>Logged Out</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f5f6fa;
+        }
+        .card {
+            text-align: center;
+            padding: 40px;
+            border-radius: 12px;
+            background: white;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            width: 350px;
+        }
+        .checkmark-circle {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-color: #d4edda;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 20px;
+        }
+        .checkmark-circle svg {
+            width: 40px;
+            height: 40px;
+            stroke: #28a745;
+            stroke-width: 3;
+            fill: none;
+        }
+        h2 {
+            margin-bottom: 10px;
+        }
+        a {
+            display: inline-block;
+            margin-top: 15px;
+            text-decoration: none;
+            color: #007BFF;
+        }
+        .footer {
+            font-size: 10px;
+            margin-top: 25px;
+            color: #ccc;
+        }
+    </style>
 </head>
 <body>
-    <h2>👋 You have been logged out.</h2>
-    <a href="{% url 'login' %}">Log back in</a>
+    <div class="card">
+        <div class="checkmark-circle">
+            <svg viewBox="0 0 52 52">
+                <path d="M14 27l7 7 17-17" />
+            </svg>
+        </div>
+        <h2>You have been logged out</h2>
+        <p>Thank you</p>
+        <a href="{% url 'login' %}">Log back in</a>
+        <div class="footer">POWERED BY YOUR APP</div>
+    </div>
 </body>
 </html>

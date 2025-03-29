@@ -20,7 +20,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    # Your apps
+    #  apps
     'accounts',
 
     # 3rd-party packages
@@ -118,8 +118,8 @@ EMAIL_HOST_PASSWORD = "pwrhdofqhkecbdyf"     #  Use Gmail App Password (not the 
 #  Optional: Outlook SMTP Settings (for Outlook OTP sending)
 OUTLOOK_HOST = "smtp.office365.com"
 OUTLOOK_PORT = 587
-OUTLOOK_HOST_USER = "your_email@outlook.com"           #  For Outlook
-OUTLOOK_HOST_PASSWORD = "your_outlook_password"
+OUTLOOK_HOST_USER = "email@outlook.com"           #  For Outlook
+OUTLOOK_HOST_PASSWORD = "outlook_password"
 
 # 2FA welcome page login support
 LOGIN_URL = 'login'
