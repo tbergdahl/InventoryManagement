@@ -5,7 +5,7 @@
 * 
 * 
 ## Work Summary (Developer Facing)
-This sprint we completed building out the inventory and report generation pages. This is all completely new and some of the techincal barriers we overcame were fixing/rewriting the routes, laying out/styling things how we wanted them on the pages, and making the app feel consistent or having a good UX.
+This sprint we completed building out the inventory and report generation pages. This is all completely new and some of the techincal barriers we overcame were fixing/rewriting the routes, laying out/styling things how we wanted them on the pages, and making the app feel consistent or having a good UX. And we also did the two factor authentication using email method. 
 ## Unfinished Work
 
 ## Completed Issues/User Stories
@@ -30,10 +30,7 @@ sprint, for quality:
 * 
 
 ## 2FA code files for review
-* InventoryManagement/settings.py
-* InventoryManagement/urls.py
-* accounts/views.py
-* accounts/urls.py
+* 
 ## Retrospective Summary
 #### Here's what went well:
 * Inventory item sorting/filtering
