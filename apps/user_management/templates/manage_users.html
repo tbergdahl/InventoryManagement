@@ -1,0 +1,65 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Manage Users</title>
+    <link rel="stylesheet" href="{% static 'css/manage_users.css' %}">
+</head>
+<body>
+    <h1>Manage Users</h1>
+<div class="container">
+    
+    <!-- Tabs for switching views -->
+    <div class="tabs">
+        <button class="tab-button active" onclick="showTab('create-user')">Create New User</button>
+        <button class="tab-button" onclick="showTab('manage-users')">Manage Existing Users</button>
+    </div>
+
+    <!-- Create New User -->
+    <div id="create-user" class="tab-content active">
+        <h2>Create New User</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" name="create_user">Create User</button>
+        </form>
+    </div>
+
+    <!-- Manage Existing Users -->
+    <div id="manage-users" class="tab-content">
+        <h2>Existing Users</h2>
+        <ul>
+            {% for user in users %}
+                <li>
+                    <span>{{ user.username }} - {{ user.email }}</span>
+                    <form method="post">
+                        {% csrf_token %}
+                        <input type="hidden" name="delete_user" value="{{ user.id }}">
+                        <button type="submit">Delete</button>
+                    </form>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+
+<script>
+    function showTab(tabName) {
+        // Hide all tab content
+        const contents = document.querySelectorAll('.tab-content');
+        contents.forEach(content => content.classList.remove('active'));
+        
+        // Remove active class from all buttons
+        const buttons = document.querySelectorAll('.tab-button');
+        buttons.forEach(button => button.classList.remove('active'));
+        
+        // Show the selected tab and mark the button as active
+        document.getElementById(tabName).classList.add('active');
+        event.target.classList.add('active');
+    }
+</script>
+
+</body>
+</html>

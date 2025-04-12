@@ -1,0 +1,107 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Inventory Dashboard</title>
+  <link rel="stylesheet" href="{% static 'user_dashboard.css' %}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+  <div class="toggle">
+    <i class="fas fa-bars"></i>
+  </div>
+
+  <div class="navigation">
+    <ul>
+      <li class="hovered">
+        <a href="#">
+          <span class="icon"><i class="fas fa-chart-line"></i></span>
+          <span class="title">Dashboard</span>
+        </a>
+      </li>
+      <li>
+        <a href="{% url 'inventory_home' %}">
+          <span class="icon"><i class="fas fa-boxes"></i></span>
+          <span class="title">Inventory</span>
+        </a>
+      </li>
+      <li><a href="#"><span class="icon"><i class="fas fa-users"></i></span><span class="title">Customers</span></a></li>
+      <li><a href="#"><span class="icon"><i class="fas fa-truck"></i></span><span class="title">Suppliers</span></a></li>
+      <li><a href="#"><span class="icon"><i class="fas fa-cog"></i></span><span class="title">Settings</span></a></li>
+      {% if request.user.is_authenticated and request.user.isAdmin %}
+      <li>
+        <a href="{% url 'manage_users' %}">
+          <span class="icon"><i class="fas fa-user-cog"></i></span>
+          <span class="title">Manage Users</span>
+        </a>
+      </li>
+      {% endif %}
+      <li>
+        <a href="{% url 'logout' %}">
+          <span class="icon"><i class="fas fa-sign-out-alt"></i></span>
+          <span class="title">Sign Out</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Main Dashboard Content -->
+  <div class="main">
+    <h2 style="text-align:center; margin-top: 20px;">Inventory Overview</h2>
+
+    <!-- Tab Buttons -->
+    <div class="tabs">
+      <button class="tab-btn active" onclick="showTab(event, 'pie')">Pie Chart</button>
+      <button class="tab-btn" onclick="showTab(event, 'histogram')">Histogram</button>
+      <button class="tab-btn" onclick="showTab(event, 'line')">Sales Line Chart</button>
+      <button class="tab-btn" onclick="showTab(event, 'bar')">Category Sales</button>
+    </div>
+
+    <!-- Pie Chart Tab -->
+    <div class="chart-content active" id="pie">
+      <label for="pieRange">Select Range:</label>
+      <select id="pieRange" onchange="updateChart('pie')">
+        <option value="weekly">Weekly</option>
+        <option value="monthly">Monthly</option>
+      </select>
+      <img id="pie-img" src="{% url 'weekly_pie_chart' %}" alt="Pie Chart">
+    </div>
+
+    <!-- Histogram Tab -->
+    <div class="chart-content" id="histogram">
+      <label for="histogramRange">Select Range:</label>
+      <select id="histogramRange" onchange="updateChart('histogram')">
+        <option value="weekly">Weekly</option>
+        <option value="monthly">Monthly</option>
+      </select>
+      <img id="histogram-img" src="{% url 'weekly_histogram' %}" alt="Histogram">
+    </div>
+
+    <!-- Line Chart Tab -->
+    <div class="chart-content" id="line">
+      <label for="lineRange">Select Range:</label>
+      <select id="lineRange" onchange="updateChart('line')">
+        <option value="weekly">Weekly</option>
+        <option value="monthly">Monthly</option>
+      </select>
+      <img id="line-img" src="{% url 'weekly_line_chart' %}" alt="Sales Over Time">
+    </div>
+
+    <!-- Bar Chart Tab -->
+    <div class="chart-content" id="bar">
+      <label for="barRange">Select Range:</label>
+      <select id="barRange" onchange="updateChart('bar')">
+        <option value="weekly">Weekly</option>
+        <option value="monthly">Monthly</option>
+      </select>
+      <img id="bar-img" src="{% url 'weekly_bar_chart' %}" alt="Category Sales Bar">
+    </div>
+  </div>
+
+  <!-- JS Script -->
+  <script src="{% static 'js/dashboard.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,201 @@
+/* General body styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 40px;
+    color: #333;
+}
+
+/* Container styles */
+.container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* Header styles */
+h1 {
+    color: #222;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Tab container */
+.tabs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 0;
+    overflow: hidden;
+    border-bottom: none;
+}
+
+/* Tab buttons */
+.tab-button {
+    flex: 1;
+    padding: 16px 0;
+    cursor: pointer;
+    font-size: 16px;
+    color: #555;
+    background-color: #f1f1f1;
+    border: 1px solid #ccc;
+    border-radius: 12px 12px 0 0;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    text-align: center;
+    font-weight: 500;
+}
+
+.tab-button.active {
+    background-color: #007bff;
+    color: white;
+    border-bottom: none;
+    font-weight: bold;
+}
+
+.tab-button:hover {
+    background-color: #e0e0e0;
+}
+
+/* Tab content container */
+.tab-content {
+    display: none;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-top: none;
+    border-radius: 0 0 12px 12px;
+    background-color: #fafafa;
+    animation: fadeIn 0.3s ease;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* Form styles */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+form p {
+    margin: 8px;
+    padding: 0;
+}
+
+/* Label and input container */
+.form-group {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* Label styles */
+label {
+    width: 150px;
+    font-weight: 500;
+    text-align: right;
+}
+
+/* Input and select styles */
+input[type="text"],
+input[type="password"],
+input[type="email"],
+select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+    transition: border-color 0.2s ease;
+    box-sizing: border-box;
+}
+
+input:focus,
+select:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+ul.errorlist, .helptext {
+    margin-top: 0;
+    margin-bottom: 4px;
+    font-size: 14px;
+    color: #777;
+}
+
+/* User Button */
+button[type="submit"][name="create_user"] {
+    background-color: #007bff;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.2s ease;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    width: 50%; 
+    margin-top: 10px; 
+    align-self: center;
+}
+
+button[type="submit"][name="create_user"]:hover {
+    background-color: #0056b3;
+}
+
+/* Existing users */
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+ul li {
+    padding: 12px;
+    background-color: #f4f4f9;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Delete button inside delete user list */
+ul li button {
+    background-color: #dc3545;
+    color: white;
+    padding: 8px 16px;
+    font-size: 14px;
+    border: none;
+    border-radius: 6px;
+    transition: background-color 0.2s ease;
+    cursor: pointer;
+    outline: none;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Hover effect delete button */
+ul li button:hover {
+    background-color: #c82333;
+}
+
+ul li button:focus {
+    outline: none;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Smooth fade animation for tabs */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

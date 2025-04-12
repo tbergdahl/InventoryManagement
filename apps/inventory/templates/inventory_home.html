@@ -1,0 +1,78 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Inventory Home</title>
+    <link rel="stylesheet" href="{% static 'css/inventory_home.css' %}">
+</head>
+<body>
+<div class="container">
+    <hr>
+    <!-- Header Row with Inventory Title, Filter, and Sort -->
+    <div class="header-row">
+        <h2>Inventory List</h2>
+        <div class="filter-form">
+            <form method="GET">
+                 <label for="category_filter">Filter:</label>
+                 <select id="category_filter" name="category">
+                      <option value="" {% if not selected_category %}selected{% endif %}>All Categories</option>
+                      <option value="bakery" {% if selected_category == 'bakery' %}selected{% endif %}>Bakery</option>
+                      <option value="beverages" {% if selected_category == 'beverages' %}selected{% endif %}>Beverages</option>
+                      <option value="canned" {% if selected_category == 'canned' %}selected{% endif %}>Canned Goods</option>
+                      <option value="dairy" {% if selected_category == 'dairy' %}selected{% endif %}>Dairy</option>
+                      <option value="fresh" {% if selected_category == 'fresh' %}selected{% endif %}>Fresh Produce</option>
+                      <option value="frozen" {% if selected_category == 'frozen' %}selected{% endif %}>Frozen Foods</option>
+                      <option value="snacks" {% if selected_category == 'snacks' %}selected{% endif %}>Snacks</option>
+                      <option value="supplies" {% if selected_category == 'supplies' %}selected{% endif %}>Supplies</option>
+                 </select>
+                 
+                 <label for="sort">Sort by:</label>
+                 <select id="sort" name="sort">
+                      <option value="default" {% if selected_sort == "default" %}selected{% endif %}>Recently Added</option>
+                      <option value="expiry" {% if selected_sort == "expiry" %}selected{% endif %}>Expiry Date</option>
+                 </select>
+                 
+                 <button type="submit" class="filter-apply">Apply</button>
+            </form>
+        </div>
+    </div>
+    
+    <ul>
+        {% for item in items %}
+            <li>
+                <span>
+                    {{ item.name }} ({{ item.count }})
+                    {% if item.is_perishable %}
+                        - Expires: {{ item.expiry_date }}
+                    {% endif %}
+                </span>
+                {% if is_admin %}
+                <form method="POST" action="{% url 'delete_item' item.id %}" style="display:inline;">
+                    {% csrf_token %}
+                    <button type="submit">Delete</button>
+                </form>
+                {% endif %}
+            </li>
+        {% empty %}
+            <li>No items found.</li>
+        {% endfor %}
+    </ul>
+    
+    {% if is_admin %}
+    <div class="button-row">
+        <div class="back-button-wrapper">
+            <a href="{% url 'user_dashboard' %}">Back to Admin Dashboard</a>
+        </div>
+        <div class="create-button-wrapper">
+            <a href="{% url 'create_item' %}">Create a new item</a>
+        </div>
+        <!-- Add this new button for report generation -->
+        <div class="report-button-wrapper">
+            <a href="{% url 'reports_page' %}" class="btn-report">Generate Reports</a>
+        </div>
+    </div>
+    {% endif %}
+</div>
+</body>
+</html>

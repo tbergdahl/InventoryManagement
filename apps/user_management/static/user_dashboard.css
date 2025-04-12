@@ -1,0 +1,141 @@
+/* Reset and Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: #f8f9fa;
+  overflow-x: hidden;
+}
+
+/* Sidebar Navigation */
+.navigation {
+  position: fixed;
+  width: 250px;
+  height: 100%;
+  background: rgb(10, 10, 37);
+  transition: width 0.3s ease;
+}
+
+.navigation ul {
+  position: absolute;
+  top: 60px;
+  left: 0;
+  width: 100%;
+}
+
+.navigation ul li {
+  list-style: none;
+  width: 100%;
+}
+
+.navigation ul li a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: white;
+  padding: 15px;
+  transition: 0.3s;
+}
+
+.navigation ul li:hover,
+.navigation ul li.hovered {
+  background: #21352b;
+}
+
+.navigation ul li a .icon {
+  min-width: 50px;
+  text-align: center;
+}
+
+.navigation ul li a .title {
+  white-space: nowrap;
+}
+
+/* Sidebar Toggle */
+.toggle {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  font-size: 25px;
+  cursor: pointer;
+  color: #198754;
+  z-index: 1000;
+}
+
+/* Main Content */
+.main {
+  position: absolute;
+  width: calc(100% - 250px);
+  left: 250px;
+  transition: 0.3s;
+  padding: 20px;
+}
+
+.main.active {
+  width: calc(100% - 70px);
+  left: 70px;
+}
+
+.navigation.active {
+  width: 70px;
+}
+
+/* Empty Content Placeholder */
+.empty-content {
+  height: 70vh;
+  border: 2px dashed #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  color: #777;
+}
+
+/* Tabs */
+.tabs {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.tabs button {
+  margin: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  border: none;
+  background: #eee;
+  border-radius: 4px;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.tabs button.active {
+  background: #198754;
+  color: white;
+}
+
+/* Chart Containers */
+.chart-content {
+  display: none;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.chart-content.active {
+  display: block;
+}
+
+.chart-content img {
+  max-width: 90%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  margin-top: 10px;
+}
+
+
