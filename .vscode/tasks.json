@@ -10,6 +10,12 @@
         "problemMatcher": []
       },
       {
+        "label": "Run Tests",
+        "type": "shell",
+        "command": "python manage.py test tests",
+        "problemMatcher": []
+      },
+      {
         "label": "Create SuperUser",
         "type": "shell",
         "command": "python manage.py createsuperuser",

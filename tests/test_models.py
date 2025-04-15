@@ -1,8 +1,8 @@
 import datetime
 from django.test import TestCase, Client
 from django.urls import reverse
-from .forms import InventoryItemForm
-from .models import InventoryItem, PerishableInventoryItem, NonPerishableInventoryItem
+from apps.inventory.forms import InventoryItemForm
+from apps.inventory.models import InventoryItem, PerishableInventoryItem, NonPerishableInventoryItem
 from django.contrib.auth import get_user_model
 
 User = get_user_model()
