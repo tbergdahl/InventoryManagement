@@ -1,50 +1,52 @@
-# Sprint x Report (1/12/25 - 2/28/2025)
+# Sprint x Report (2/28/25 - 3/28/2025)
 ## What's New (User Facing)
-* Fixed login view bug where it would direct the user to a page that doesn't exist
-* User can login
-* Admin can create/delete accounts
-* Accounts can add inventory items
+* Inventory page now has more functionality (sorting/filtering/creating items)
+* UI/Style changes across the entie app
+* Generate Reports Page
 ## Work Summary (Developer Facing)
-This sprint we completed the Solution approach document as well as setting up a lot of code in the backend. This was fairly straightforward but gives us a good base to 
-build off of and complete more of the app as well as the frontend. This sprint was a lot of skeletal code and account management related code.
+This sprint we completed building out the inventory and report generation pages. This is all completely new and some of the techincal barriers we overcame were fixing/rewriting the routes, laying out/styling things how we wanted them on the pages, and making the app feel consistent or having a good UX. And we also did the two factor authentication using email method. 
 ## Unfinished Work
-We need to develop a comprehensive system that includes a login page with user authentication to grant access to different pages based on user roles. The system will also feature an inventory management module where users can monitor product inflow and outflow. This will include an inventory display page that provides real-time updates on stock levels, as well as an account management section to oversee user credentials and access permissions. Additionally, the system will generate reports using visual representations like pie charts and bar charts to analyze inventory trends and performance. An inventory login page will also be implemented to ensure secure access to stock-related information.
+Integrating the MFA for the login/signup page
 ## Completed Issues/User Stories
 Here are links to the issues that we completed in this sprint:
-* [Login view bug URL](https://github.com/tbergdahl/InventoryManagement/issues/1)
-* [Admin account creation and deletion URL](https://github.com/tbergdahl/InventoryManagement/issues/3)
-* [Admin account creation usertype URL](https://github.com/tbergdahl/InventoryManagement/issues/5)
-* [Admin can create inventory items URL](https://github.com/tbergdahl/InventoryManagement/issues/7)
-* [Added requirements.txt file URL](https://github.com/tbergdahl/InventoryManagement/issues/9)
-* [Implement Navigation to Report Page From Inventory Screen](https://github.com/tbergdahl/InventoryManagement/issues/27)
-* [Implement UI for admin report creation](https://github.com/tbergdahl/InventoryManagement/issues?q=is%3Aissue%20state%3Aclosed)
-* [Implement the report generation based off UI feedback](https://github.com/tbergdahl/InventoryManagement/issues/32)
+* [Login styling](https://github.com/tbergdahl/InventoryManagement/issues/11)
+* [Admin dashboard styling](https://github.com/tbergdahl/InventoryManagement/issues/13)
+* [Creating/managing users styling](https://github.com/tbergdahl/InventoryManagement/issues/14)
+* [Inventory list formatting](https://github.com/tbergdahl/InventoryManagement/issues/16)
+* [Non-perishable items can't be created or deleted](https://github.com/tbergdahl/InventoryManagement/issues/18)
+* [No navigation functionality with the inventory app](https://github.com/tbergdahl/InventoryManagement/issues/20)
+* [Can't filter inventory by type](https://github.com/tbergdahl/InventoryManagement/issues/22)
+* [Can't sort inventory](https://github.com/tbergdahl/InventoryManagement/issues/24)
+* [InventoryManagement/ (project folder)](https://github.com/tbergdahl/InventoryManagement/tree/code-recovery/InventoryManagement)
+* [settings.py](https://github.com/tbergdahl/InventoryManagement/blob/code-recovery/InventoryManagement/settings.py)
+*  [accounts/views.py](https://github.com/tbergdahl/InventoryManagement/blob/code-recovery/accounts/views.py)
+* [accounts/urls.py](https://github.com/tbergdahl/InventoryManagement/blob/code-recovery/accounts/urls.py)
+* [login.html](https://github.com/tbergdahl/InventoryManagement/blob/code-recovery/accounts/templates/accounts/login.html)  
+* [logout.html](https://github.com/tbergdahl/InventoryManagement/blob/code-recovery/accounts/templates/accounts/logout.html)  
+* [signup.html](https://github.com/tbergdahl/InventoryManagement/blob/code-recovery/accounts/templates/accounts/signup.html)  
+* [verify_otp.html](https://github.com/tbergdahl/InventoryManagement/blob/code-recovery/accounts/templates/accounts/verify_otp.html)
 
+
+* Double factor authentication - create login.html, signup.html, verify-code.html, welcome-page and logout-page
 ## Incomplete Issues/User Stories
-There are currently no issues that are incomplete yet as the app is in its very early stages.
+There are currently no issues that are incomplete.
 ## Code Files for Review
 Please review the following code files, which were actively developed during this
 sprint, for quality:
-* [user_management views.py](https://github.com/tbergdahl/InventoryManagement/blob/main/apps/user_management/views.py)
-* [user_management models.py](https://github.com/tbergdahl/InventoryManagement/blob/main/apps/user_management/models.py)
-* [user_management admin.py](https://github.com/tbergdahl/InventoryManagement/blob/main/apps/user_management/admin.py)
-* [report_generation](https://github.com/tbergdahl/InventoryManagement/blob/main/apps/report_generation/views.py)
-* [report_generation/templates](https://github.com/tbergdahl/InventoryManagement/tree/main/apps/report_generation/templates)
+* [inventory views.py](https://github.com/tbergdahl/InventoryManagement/blob/main/apps/inventory/views.py) 
 ## Retrospective Summary
 #### Here's what went well:
-* Backend setup
-* Account creation/deletion
+* Inventory item sorting/filtering
 * Bug fixes were fairly straightforward
-* Backend setup allowed for easy filtering for reports
+* Style changes enhanced clarity and UX
+* Do check up the email otp sending and verifying it and gives the time limit within 10 minutes.
+  
 #### Here's what we'd like to improve:
-* Better UI
-* Having more pages implemented
-* More report types
+* Add graphs/charts to reports
 #### Here are changes we plan to implement in the next sprint:
-* Add styling to the user interface
-* Build out more of the pages of the app
-* Testing
+* Implement the testing we planned out in our last document
+* Add small functionality changes across the app
 ## Demo Video
-[CptS 582 Sprint 1 Video](https://youtu.be/FLbpDkTvuso)
+[CptS 582 Sprint 2 Video](https://youtu.be/6mVaMp5jLGo)
 
 
