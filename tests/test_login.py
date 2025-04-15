@@ -57,3 +57,43 @@ class LoginTest(LiveServerTestCase):
             print("Login failed. Screenshot saved as login_failed.png")
             print("Page source:", self.driver.page_source[:1000])
             raise e
+        
+class InvalidLoginTest(LiveServerTestCase):
+    @classmethod
+    def setUpClass(cls):
+        super().setUpClass()
+        options = webdriver.ChromeOptions()
+        options.add_argument("--headless=new")  # Remove this line to see the browser
+        cls.driver = webdriver.Chrome(options=options)
+        cls.driver.implicitly_wait(5)
+
+    @classmethod
+    def tearDownClass(cls):
+        cls.driver.quit()
+        super().tearDownClass()
+
+    def test_invalid_login(self):
+        login_url = f"{self.live_server_url}/user_management/"
+        self.driver.get(login_url)
+
+        print(f"Current URL: {self.driver.current_url}")
+
+        try:
+            username = WebDriverWait(self.driver, 10).until(
+                EC.presence_of_element_located((By.NAME, "username"))
+            )
+            password = self.driver.find_element(By.NAME, "password")
+            submit = self.driver.find_element(By.XPATH, "//button[@type='submit']")
+            username.send_keys("nonexistentuser")
+            password.send_keys("wrongpassword")
+            submit.click()
+
+            time.sleep(2)  # Wait for page to load
+            self.assertIn("Login", self.driver.page_source) # are we still on login page?
+            self.assertIn("Invalid", self.driver.page_source)
+
+        except Exception as e:
+            self.driver.save_screenshot("invalid_login_failed.png")
+            print("Test failed. Screenshot saved as invalid_login_failed.png")
+            print("Page source:", self.driver.page_source[:1000])
+            raise e
