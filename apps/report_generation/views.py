@@ -53,8 +53,6 @@ def reports_page(request):
     return render(request, 'report_selection.html', context)
 
 
-from apps.inventory.models import  PerishableInventoryItem
-
 def get_filtered_items(report_type, category=None, start_date=None, end_date=None):
     """
     Returns filtered inventory items with proper polymorphic handling

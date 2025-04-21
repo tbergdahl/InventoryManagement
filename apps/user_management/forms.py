@@ -1,7 +1,7 @@
 from django import forms
 from .models import CustomUser
 from django.contrib.auth.forms import UserCreationForm
-from apps.inventory.models import PerishableInventoryItem
+
 from django.contrib.auth.hashers import make_password
 
 class CreateUserForm(UserCreationForm):

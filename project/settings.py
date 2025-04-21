@@ -103,3 +103,20 @@ DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
 # Auto primary key
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+
+    # your apps
+    'apps.inventory.apps.InventoryConfig',    # ✅ Inventory app with correct config
+    'apps.user_management',                   # ✅ User management app
+]
+
+
+
+
