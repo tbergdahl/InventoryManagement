@@ -385,7 +385,7 @@ def inventory_home(request):
         if item.expiry_date and item.expiry_date < today:
             notifications.append(f"❗ {item.name} has expired on {item.expiry_date.strftime('%d %b %Y')}")
 
-        # ✅ SMARTER replacement of {stock}
+        #  replacement of {stock}
         if threshold and threshold.template_message and item.count is not None:
             message = threshold.template_message.replace("{stock}", str(item.count))
         else:

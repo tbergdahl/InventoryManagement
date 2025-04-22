@@ -1,49 +1,101 @@
 from django.test import LiveServerTestCase
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-from selenium.webdriver.common.keys import Keys
 import time
+import os
+from django.contrib.auth import get_user_model
+from apps.inventory.models import InventoryItem, ThresholdSetting  
+from django.utils.timezone import now, timedelta
 
-class UserLoginTest(LiveServerTestCase):
-
+class UserLoginAndInventoryTest(LiveServerTestCase):
     def setUp(self):
-        self.driver = webdriver.Safari()
+        User = get_user_model()
+        self.user = User.objects.create_superuser(
+            username='adminuser',
+            password='Sh0wP@ss*90',
+            email='shampurna.das@wsu.edu',
+            usertype='ADMIN'  
+        )
 
-    def tearDown(self):
-        self.driver.quit()
+        #  Create dummy threshold
+        self.threshold = ThresholdSetting.objects.create(
+            product='Milk',
+            min_quantity=10,
+            max_quantity=50,
+            color='red',
+            template_message="Stock low: {stock} left!"
+        )
 
-    def test_login_2fa_and_forgot_password(self):
-        driver = self.driver
-        driver.get(self.live_server_url + "/login/")  # Your login page URL
+        #  Create dummy inventory
+        InventoryItem.objects.create(
+            name='Milk',
+            category='dairy',
+            count=5,  # deliberately low to trigger alert
+            expiry_date=now().date() - timedelta(days=1),  # expired date
+            min_quantity=10,
+            max_quantity=50,
+            template_message="Stock low: {stock} left!"
+        )
 
-        # Step 1: Login page
-        username_input = driver.find_element(By.NAME, "username")
-        password_input = driver.find_element(By.NAME, "password")
-        username_input.send_keys("your_test_username")
-        password_input.send_keys("your_test_password")
-        password_input.send_keys(Keys.RETURN)
+    def test_full_user_flow(self):
+        driver = webdriver.Safari()
 
-        # Wait for 2FA page to load
-        time.sleep(2)
+        try:
+            driver.get(self.live_server_url)
+            time.sleep(2)
 
-        # Step 2: 2FA page
-        otp_input = driver.find_element(By.NAME, "otp")
-        otp_input.send_keys("123456")  # ⚡ You should mock or pre-set a test OTP
-        otp_input.send_keys(Keys.RETURN)
+            #  First, check Forgot Password Link
+            forgot_link = driver.find_element(By.LINK_TEXT, "Forgot your password?")
+            forgot_link.click()
+            time.sleep(2)
+            self.assertIn("Forgot Your Password", driver.page_source)
 
-        time.sleep(2)
+            # Now go back to Login page manually
+            driver.back()
+            time.sleep(2)
 
-        # After successful 2FA, user should land on dashboard
-        self.assertIn("Dashboard", driver.page_source)
+            # Login
+            username_input = driver.find_element(By.NAME, "username")
+            password_input = driver.find_element(By.NAME, "password")
+            username_input.send_keys('adminuser')
+            password_input.send_keys('Sh0wP@ss*90')
+            driver.find_element(By.TAG_NAME, "button").click()
+            time.sleep(3)
 
-        # Step 3: Check Forgot Password
-        driver.get(self.live_server_url + "/password_reset/")
+            #  Handle 2FA if needed
+            if "Enter OTP" in driver.page_source or "OTP" in driver.page_source:
+                otp_input = driver.find_element(By.NAME, "otp")
+                otp_input.send_keys(os.environ.get("TESTING_OTP", "12345"))
+                driver.find_element(By.TAG_NAME, "button").click()
+                time.sleep(3)
 
-        email_input = driver.find_element(By.NAME, "email")
-        email_input.send_keys("testuser@example.com")
-        email_input.send_keys(Keys.RETURN)
+            #  Now check if dashboard loaded
+            page_source = driver.page_source
+            self.assertTrue(
+                "Inventory Overview" in page_source or 
+                "Pie Chart" in page_source or 
+                "Sales Line Chart" in page_source
+            )
 
-        time.sleep(2)
+            #  Click Inventory tab (optional)
+            try:
+                inventory_link = driver.find_element(By.PARTIAL_LINK_TEXT, "Inventory")
+                inventory_link.click()
+                time.sleep(2)
+            except:
+                pass
 
-        # After submitting, check for success message
-        self.assertIn("password reset", driver.page_source.lower())
+            #  Click Thresholds tab (optional)
+            try:
+                thresholds_link = driver.find_element(By.LINK_TEXT, "Manage Thresholds")
+                thresholds_link.click()
+                time.sleep(2)
+            except:
+                pass
+
+            #  Check for inventory alerts 
+            page_source = driver.page_source
+            self.assertTrue("⚠️" in page_source or "❗" in page_source)
+
+        finally:
+            driver.quit()

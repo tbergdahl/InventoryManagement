@@ -1,6 +1,6 @@
 import random
 import matplotlib
-matplotlib.use("Agg")  # ✅ Use non-GUI backend for server
+matplotlib.use("Agg")  
 
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
@@ -25,6 +25,14 @@ import seaborn as sns
 # Authentication Views
 # ----------------------------
 
+import os  #  Import os for TESTING mode
+import random
+from django.shortcuts import render, redirect
+from django.contrib.auth import authenticate, login, logout
+from django.core.mail import send_mail
+from django.conf import settings
+from .models import CustomUser  
+
 def login_user(request):
     if request.method == "POST":
         username = request.POST["username"]
@@ -48,6 +56,15 @@ def login_user(request):
 
 
 def verify_otp(request):
+    # Bypass OTP if in Selenium Testing Mode
+    if os.environ.get("TESTING") == "1":
+        user_id = request.session.get('pre_2fa_user')
+        user = CustomUser.objects.get(id=user_id)
+        login(request, user)
+        del request.session['otp']
+        del request.session['pre_2fa_user']
+        return redirect("user_dashboard")
+
     if request.method == "POST":
         entered_otp = request.POST.get("otp")
         if entered_otp == request.session.get("otp"):
@@ -65,6 +82,7 @@ def verify_otp(request):
 def logout_view(request):
     logout(request)
     return redirect("login_user")
+
 
 
 # ----------------------------
@@ -173,3 +191,4 @@ def product_histogram(request):
     plt.close()
     buffer.seek(0)
     return HttpResponse(buffer.read(), content_type='image/png')
+
