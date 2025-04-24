@@ -11,14 +11,20 @@ None
 Here are links to the issues that we completed in this sprint:
 * [Login styling](https://github.com/tbergdahl/InventoryManagement/issues/11)
 * [Admin dashboard styling](https://github.com/tbergdahl/InventoryManagement/issues/13)
+* [Integrate Selenium Testing](https://github.com/tbergdahl/InventoryManagement/issues/40)
+* [Write tests for report generation](https://github.com/tbergdahl/InventoryManagement/issues/42)
+* [Write tests for login page](https://github.com/tbergdahl/InventoryManagement/issues/41)
 
 ## Incomplete Issues/User Stories
 There are currently no issues that are incomplete.
 ## Code Files for Review
 Please review the following code files, which were actively developed during this
 sprint, for quality:
-* [inventory views.py](https://github.com/tbergdahl/InventoryManagement/blob/main/apps/inventory/views.py) 
-## Retrospective Summary
+* [inventory_views.py]
+* [test_login.py]
+* [test_models.py]
+* [test_report_generation.py]
+* [selenium_setup.py]
 #### Here's what went well:
 * Unit tests for each app
 * Selenium tests
@@ -30,6 +36,6 @@ sprint, for quality:
 #### Here are changes we plan to implement in the next sprint:
 * N/A
 ## Demo Video
-[CptS 582 Sprint 2 Video](https://youtu.be/6mVaMp5jLGo)
+[CptS 582 Sprint 3 Video](todo)
 
 
