@@ -1,10 +1,10 @@
-# Sprint x Report (2/28/25 - 3/28/2025)
+# Sprint x Report (3/29/25 - 5/2/2025)
 ## What's New (User Facing)
 * Two-factor authentication is now in place
 * Report Generation page now has consistent styling
-* 
+* Testing has been implemented
 ## Work Summary (Developer Facing)
-This sprint we completed setting up and writing tests for the entire system. We started with unit tests for each app (inventory, report gen, user management), and also implemented selenium testing. On top of this we also integrated two factor authentication when logging in.
+This sprint we completed setting up and writing tests for the entire system. We started with unit tests for each app (inventory, report gen, user management), and also implemented selenium testing, and did user acceptance testing. On top of this we also integrated two factor authentication when logging in.
 ## Unfinished Work
 None
 ## Completed Issues/User Stories
@@ -24,9 +24,10 @@ sprint, for quality:
 * Selenium tests
 * Implementing two-factor authentication
 * Stylistic changes to make the system feel cohesive
+* User acceptance testing
   
 #### Here's what we'd like to improve:
-* Add graphs/charts to reports
+* N/A
 #### Here are changes we plan to implement in the next sprint:
 * N/A
 ## Demo Video
