@@ -31,6 +31,6 @@ sprint, for quality:
 #### Here are changes we plan to implement in the next sprint:
 * N/A
 ## Demo Video
-[CptS 582 Sprint 2 Video](https://youtu.be/6mVaMp5jLGo)
+[CptS 582 Sprint 3 Video](https://youtu.be/cX060PVh-P0)
 
 
