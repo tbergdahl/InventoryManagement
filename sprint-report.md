@@ -9,8 +9,10 @@ This sprint we completed setting up and writing tests for the entire system. We 
 None
 ## Completed Issues/User Stories
 Here are links to the issues that we completed in this sprint:
-* [Login styling](https://github.com/tbergdahl/InventoryManagement/issues/11)
-* [Admin dashboard styling](https://github.com/tbergdahl/InventoryManagement/issues/13)
+* [User management tests](https://github.com/tbergdahl/InventoryManagement/issues/46)
+* [Report gen tests](https://github.com/tbergdahl/InventoryManagement/issues/42)
+* [Login page tests](https://github.com/tbergdahl/InventoryManagement/issues/41)
+* [Selenium tests](https://github.com/tbergdahl/InventoryManagement/issues/40)
 
 ## Incomplete Issues/User Stories
 There are currently no issues that are incomplete.
