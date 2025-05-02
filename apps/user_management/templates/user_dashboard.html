@@ -10,98 +10,150 @@
 </head>
 <body>
 
-  <div class="toggle">
-    <i class="fas fa-bars"></i>
+<div class="toggle">
+  <i class="fas fa-bars"></i>
+</div>
+
+<div class="navigation">
+  <ul>
+    <li class="hovered">
+      <a href="#">
+        <span class="icon"><i class="fas fa-chart-line"></i></span>
+        <span class="title">Dashboard</span>
+      </a>
+    </li>
+    <li>
+      <a href="{% url 'inventory_home' %}">
+        <span class="icon"><i class="fas fa-boxes"></i></span>
+        <span class="title">Inventory</span>
+      </a>
+    </li>
+    {% if request.user.is_authenticated and request.user.isAdmin %}
+    <li>
+      <a href="{% url 'manage_users' %}">
+        <span class="icon"><i class="fas fa-user-cog"></i></span>
+        <span class="title">Manage Users</span>
+      </a>
+    </li>
+    {% endif %}
+    {% if request.user.is_authenticated and request.user.isAdmin %}
+<li>
+  <a href="{% url 'threshold_list' %}">
+    <span class="icon"><i class="fas fa-sliders-h"></i></span>
+    <span class="title">Manage Thresholds</span>
+  </a>
+</li>
+{% endif %}
+
+    <li>
+      <a href="{% url 'logout' %}">
+        <span class="icon"><i class="fas fa-sign-out-alt"></i></span>
+        <span class="title">Sign Out</span>
+      </a>
+    </li>
+  </ul>
+</div>
+
+<div class="main">
+  <h2 style="text-align:center; margin-top: 20px;">Inventory Overview</h2>
+
+  <!-- Tab Buttons -->
+  <div class="tabs">
+    <button class="tab-btn active" onclick="showTab(event, 'pie')">Pie Chart</button>
+    <button class="tab-btn" onclick="showTab(event, 'histogram')">Histogram</button>
+    <button class="tab-btn" onclick="showTab(event, 'line')">Sales Line Chart</button>
+    <button class="tab-btn" onclick="showTab(event, 'bar')">Category Sales</button>
+    <button class="tab-btn" onclick="showTab(event, 'productwise')">Product Wise</button>
   </div>
 
-  <div class="navigation">
-    <ul>
-      <li class="hovered">
-        <a href="#">
-          <span class="icon"><i class="fas fa-chart-line"></i></span>
-          <span class="title">Dashboard</span>
-        </a>
-      </li>
-      <li>
-        <a href="{% url 'inventory_home' %}">
-          <span class="icon"><i class="fas fa-boxes"></i></span>
-          <span class="title">Inventory</span>
-        </a>
-      </li>
-      <li><a href="#"><span class="icon"><i class="fas fa-users"></i></span><span class="title">Customers</span></a></li>
-      <li><a href="#"><span class="icon"><i class="fas fa-truck"></i></span><span class="title">Suppliers</span></a></li>
-      <li><a href="#"><span class="icon"><i class="fas fa-cog"></i></span><span class="title">Settings</span></a></li>
-      {% if request.user.is_authenticated and request.user.isAdmin %}
-      <li>
-        <a href="{% url 'manage_users' %}">
-          <span class="icon"><i class="fas fa-user-cog"></i></span>
-          <span class="title">Manage Users</span>
-        </a>
-      </li>
-      {% endif %}
-      <li>
-        <a href="{% url 'logout' %}">
-          <span class="icon"><i class="fas fa-sign-out-alt"></i></span>
-          <span class="title">Sign Out</span>
-        </a>
-      </li>
-    </ul>
-  </div>
-
-  <!-- Main Dashboard Content -->
-  <div class="main">
-    <h2 style="text-align:center; margin-top: 20px;">Inventory Overview</h2>
-
-    <!-- Tab Buttons -->
-    <div class="tabs">
-      <button class="tab-btn active" onclick="showTab(event, 'pie')">Pie Chart</button>
-      <button class="tab-btn" onclick="showTab(event, 'histogram')">Histogram</button>
-      <button class="tab-btn" onclick="showTab(event, 'line')">Sales Line Chart</button>
-      <button class="tab-btn" onclick="showTab(event, 'bar')">Category Sales</button>
-    </div>
-
-    <!-- Pie Chart Tab -->
-    <div class="chart-content active" id="pie">
+  <!-- Standard Chart Tabs (Pie, Histogram, Line, Bar) -->
+  <div class="chart-content active" id="pie">
+    <div class="chart-header">
       <label for="pieRange">Select Range:</label>
       <select id="pieRange" onchange="updateChart('pie')">
         <option value="weekly">Weekly</option>
         <option value="monthly">Monthly</option>
       </select>
-      <img id="pie-img" src="{% url 'weekly_pie_chart' %}" alt="Pie Chart">
     </div>
+    <img id="pie-img" src="{% url 'weekly_pie_chart' %}" alt="Pie Chart">
+  </div>
 
-    <!-- Histogram Tab -->
-    <div class="chart-content" id="histogram">
+  <div class="chart-content" id="histogram">
+    <div class="chart-header">
       <label for="histogramRange">Select Range:</label>
       <select id="histogramRange" onchange="updateChart('histogram')">
         <option value="weekly">Weekly</option>
         <option value="monthly">Monthly</option>
       </select>
-      <img id="histogram-img" src="{% url 'weekly_histogram' %}" alt="Histogram">
     </div>
+    <img id="histogram-img" src="{% url 'weekly_histogram' %}" alt="Histogram">
+  </div>
 
-    <!-- Line Chart Tab -->
-    <div class="chart-content" id="line">
+  <div class="chart-content" id="line">
+    <div class="chart-header">
       <label for="lineRange">Select Range:</label>
       <select id="lineRange" onchange="updateChart('line')">
         <option value="weekly">Weekly</option>
         <option value="monthly">Monthly</option>
       </select>
-      <img id="line-img" src="{% url 'weekly_line_chart' %}" alt="Sales Over Time">
     </div>
+    <img id="line-img" src="{% url 'weekly_line_chart' %}" alt="Line Chart">
+  </div>
 
-    <!-- Bar Chart Tab -->
-    <div class="chart-content" id="bar">
+  <div class="chart-content" id="bar">
+    <div class="chart-header">
       <label for="barRange">Select Range:</label>
       <select id="barRange" onchange="updateChart('bar')">
         <option value="weekly">Weekly</option>
         <option value="monthly">Monthly</option>
       </select>
-      <img id="bar-img" src="{% url 'weekly_bar_chart' %}" alt="Category Sales Bar">
     </div>
+    <img id="bar-img" src="{% url 'weekly_bar_chart' %}" alt="Bar Chart">
   </div>
 
-  <!-- JS Script -->
-  <script src="{% static 'js/dashboard.js' %}"></script>
+  <!-- Product Wise Tab -->
+<div class="chart-content" id="productwise">
+  <div class="chart-header">
+    <label for="productSelect">Select Product:</label>
+    <select id="productSelect">
+      <option value="">All</option>
+      <optgroup label="Perishable">
+        <option value="Milk">Milk</option>
+        <option value="Eggs">Eggs</option>
+        <option value="Yogurt">Yogurt</option>
+        <option value="Cheese">Cheese</option>
+        <option value="Spinach">Spinach</option>
+        <option value="Tomato">Tomato</option>
+        <option value="Chicken">Chicken</option>
+        <option value="Fish">Fish</option>
+      </optgroup>
+      <optgroup label="Non-Perishable">
+        <option value="Rice">Rice</option>
+        <option value="Pasta">Pasta</option>
+        <option value="Canned Beans">Canned Beans</option>
+        <option value="Soap">Soap</option>
+        <option value="Shampoo">Shampoo</option>
+        <option value="Notebook">Notebook</option>
+        <option value="Chips">Chips</option>
+        <option value="Cereal">Cereal</option>
+      </optgroup>
+    </select>
+
+  
+  </div>
+
+  <!-- Chart Type Tabs -->
+  <div class="product-chart-tabs" style="text-align:center; margin-top:10px;">
+    <button class="product-tab active" data-chart="line" onclick="switchProductChart('line')">Line Chart</button>
+    <button class="product-tab" data-chart="histogram" onclick="switchProductChart('histogram')">Histogram</button>
+  </div>
+
+  <!-- Chart Images -->
+  <img id="product-line-img" src="#" alt="Product Line Chart" style="margin-top: 15px;">
+  <img id="product-histogram-img" src="#" alt="Product Histogram" style="display: none; margin-top: 15px;">
+</div>
+
+
+<script src="{% static 'js/dashboard.js' %}"></script>
 </body>
 </html>

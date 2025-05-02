@@ -130,6 +130,26 @@ body {
   display: block;
 }
 
+/* Dropdown + Chart Wrapper */
+.chart-header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.chart-header label {
+  font-weight: bold;
+  margin-right: 8px;
+}
+
+.chart-header select {
+  padding: 6px 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+/* Chart Image */
 .chart-content img {
   max-width: 90%;
   height: auto;
@@ -137,5 +157,4 @@ body {
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
   margin-top: 10px;
 }
-
 
